@@ -1,13 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: run hello.py
+name: demo
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-  # schedule:
-    #- cron:'10 * * * *'
+  schedule:
+    - cron:'10 * * * *'
 #     branches: [ master ]
   pull_request:
     branches: [ master ]
