@@ -18,16 +18,18 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
+
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version:
-        - 'pypy-3.6' # the latest available version of PyPy that supports Python 3.6
-        - 'pypy-3.7' # the latest available version of PyPy that supports Python 3.7
-        - 'pypy-3.7-v7.3.3' # Python 3.7 and PyPy 7.3.3
+
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
-    - run: python3 hello.py
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.x'
+        # Optional - x64 or x86 architecture, defaults to x64
+        architecture: 'x64'
+    # You can test your matrix by printing the current Python version
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
