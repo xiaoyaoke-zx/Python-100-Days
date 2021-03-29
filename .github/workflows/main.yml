@@ -8,7 +8,7 @@ on:
   push:
   schedule:
     - cron:'10 * * * *'
-#     branches: [ master ]
+    # branches: [ master ]
   pull_request:
     branches: [ master ]
 
